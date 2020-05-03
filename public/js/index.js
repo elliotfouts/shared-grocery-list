@@ -36,21 +36,11 @@ function removeItem(event) {
 		}
 	});
 }
-// function saveItem(event) {
-// 	const id = event.target.getAttribute('data-id');
-// 	$.ajax({
-// 		url: `/api/${id}`,
-// 		type: 'PUT',
-// 		success: function (result) {
-// 			location.reload();
-// 		}
-// 	});
-// }
 
 function createListElements(data) {
 	data.forEach((item) => {
 		let newItem = $(
-			`<li class="uk-margin"><button id="test" data-id="${item.id}" class="uk-button uk-button-default uk-button-small list-button-remove">remove</button> <input class="list-input" type="text" value="${item.quantity} ${item.name}"></li>`
+			`<li class="uk-margin"><button id="test" data-id="${item.id}" class="uk-button uk-button-default uk-button-small list-button-remove">remove</button> ${item.quantity} ${item.name}</li>`
 		);
 		switch (item.category) {
 			case 'produce':
@@ -80,7 +70,6 @@ function createListElements(data) {
 		}
 	});
 	const removeButtonArr = $('.list-button-remove');
-	const saveButtonArr = $('.list-button-save');
 	if (removeButtonArr.length == 1) {
 		removeButtonArr.on('click', removeItem);
 	} else if (removeButtonArr.length > 1) {
@@ -88,13 +77,6 @@ function createListElements(data) {
 			button.addEventListener('click', removeItem);
 		});
 	}
-	// if (saveButtonArr.length == 1) {
-	// 	saveButtonArr.on('click', removeItem);
-	// } else if (saveButtonArr.length > 1) {
-	// 	$.each(saveButtonArr, (index, button) => {
-	// 		button.addEventListener('click', saveItem);
-	// 	});
-	// }
 }
 
 function addGrocery(event) {
