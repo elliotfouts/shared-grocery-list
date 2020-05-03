@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/uikit.css" />
+		<title>Grocery List</title>
+	</head>
+	<body>
+		<h1 class="uk-padding uk-padding-remove-bottom">Grocery List</h1>
+		<ul uk-accordion class="uk-padding">
+			<li>
+				<a class="uk-accordion-title" href="#">Fruits/Vegetables</a>
+				<div class="uk-accordion-content">
+					<ul id="produce-list"></ul>
+				</div>
+			</li>
+			<li>
+				<a class="uk-accordion-title" href="#">Meat</a>
+				<div class="uk-accordion-content">
+					<ul id="meat-list"></ul>
+				</div>
+			</li>
+			<li>
+				<a class="uk-accordion-title" href="#">Dairy/Eggs</a>
+				<div class="uk-accordion-content">
+					<ul id="dairy-list"></ul>
+				</div>
+			</li>
+			<li>
+				<a class="uk-accordion-title" href="#">Cereal/Dry Snacks</a>
+				<div class="uk-accordion-content">
+					<ul id="dry-list"></ul>
+				</div>
+			</li>
+			<li>
+				<a class="uk-accordion-title" href="#">Bread/Bagels</a>
+				<div class="uk-accordion-content">
+					<ul id="baked-list"></ul>
+				</div>
+			</li>
+			<li>
+				<a class="uk-accordion-title" href="#">Pasta/Soups/Ethnic Foods</a>
+				<div class="uk-accordion-content">
+					<ul id="ethnic-list"></ul>
+				</div>
+			</li>
+			<li>
+				<a class="uk-accordion-title" href="#">Other</a>
+				<div class="uk-accordion-content">
+					<ul id="other-list"></ul>
+				</div>
+			</li>
+		</ul>
+		<hr />
+		<form action="/" method="POST" class="uk-padding">
+			<fieldset class="uk-fieldset">
+				<h1 class="uk-align-center">Add an Item</h1>
+
+				<div class="uk-margin">
+					<p>Food Name:</p>
+					<input class="uk-input" id="form-input-name" type="text" placeholder="Apples" />
+				</div>
+
+				<div class="uk-margin">
+					<p>Quantity:</p>
+					<input class="uk-input" id="form-input-quantity" type="number" placeholder="1" />
+				</div>
+
+				<div class="uk-margin">
+					<p>Category:</p>
+					<select class="uk-select" id="form-input-category">
+						<option value="produce">Fruits/Vegetables</option>
+						<option value="meat">Meat</option>
+						<option value="dairy">Dairy/Eggs</option>
+						<option value="dry">Cereal/Dry Snacks</option>
+						<option value="baked">Bread/Bagels</option>
+						<option value="ethnic">Pasta/Soups/Ethnic Foods</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+
+				<p uk-margin>
+					<button type="submit" id="form-button" class="uk-button uk-button-default uk-align-center">
+						Add to List
+					</button>
+				</p>
+			</fieldset>
+		</form>
+
+		<script src="./js/uikit.js"></script>
+		<script src="./js/uikit-icons.js"></script>
+		<script
+			src="https://code.jquery.com/jquery-3.5.0.min.js"
+			integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+			crossorigin="anonymous"
+		></script>
+		<script src="./js/index.js"></script>
+	</body>
+</html>
