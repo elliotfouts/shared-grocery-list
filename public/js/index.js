@@ -22,6 +22,7 @@ function clearGroceryList() {
 	$('#dry-list').empty();
 	$('#baked-list').empty();
 	$('#ethnic-list').empty();
+	$('#personal-list').empty();
 	$('#other-list').empty();
 }
 
@@ -35,11 +36,21 @@ function removeItem(event) {
 		}
 	});
 }
+// function saveItem(event) {
+// 	const id = event.target.getAttribute('data-id');
+// 	$.ajax({
+// 		url: `/api/${id}`,
+// 		type: 'PUT',
+// 		success: function (result) {
+// 			location.reload();
+// 		}
+// 	});
+// }
 
 function createListElements(data) {
 	data.forEach((item) => {
 		let newItem = $(
-			`<li class="uk-margin">${item.quantity} ${item.name} <button id="test" data-id="${item.id}" class="uk-button uk-button-default uk-button-small list-button-remove">remove</button></li>`
+			`<li class="uk-margin"><button id="test" data-id="${item.id}" class="uk-button uk-button-default uk-button-small list-button-remove">remove</button> <input class="list-input" type="text" value="${item.quantity} ${item.name}"></li>`
 		);
 		switch (item.category) {
 			case 'produce':
@@ -60,12 +71,16 @@ function createListElements(data) {
 			case 'ethnic':
 				$('#ethnic-list').append(newItem);
 				break;
+			case 'personal':
+				$('#personal-list').append(newItem);
+				break;
 			case 'other':
 				$('#other-list').append(newItem);
 				break;
 		}
 	});
 	const removeButtonArr = $('.list-button-remove');
+	const saveButtonArr = $('.list-button-save');
 	if (removeButtonArr.length == 1) {
 		removeButtonArr.on('click', removeItem);
 	} else if (removeButtonArr.length > 1) {
@@ -73,28 +88,37 @@ function createListElements(data) {
 			button.addEventListener('click', removeItem);
 		});
 	}
+	// if (saveButtonArr.length == 1) {
+	// 	saveButtonArr.on('click', removeItem);
+	// } else if (saveButtonArr.length > 1) {
+	// 	$.each(saveButtonArr, (index, button) => {
+	// 		button.addEventListener('click', saveItem);
+	// 	});
+	// }
 }
 
 function addGrocery(event) {
 	event.preventDefault();
 	let newGrocery = {};
-	newGrocery.name = formInputName.val().trim();
+	newGrocery.name = formInputName.val().trim().toLowerCase();
 	newGrocery.quantity = formInputQuantity.val().trim();
 	newGrocery.category = formInputCategory.val().trim();
-
-	$.ajax({
-		type: 'POST',
-		url: '/',
-		data: newGrocery,
-		success: loadData,
-		error: loadError
-	});
+	if (newGrocery.name == "" || newGrocery.quantity == "" || newGrocery.category == "") {
+		UIkit.notification('Please fill out all fields', 'danger');
+	} else {
+		$.ajax({
+			type: 'POST',
+			url: '/',
+			data: newGrocery,
+			success: loadData,
+			error: loadError
+		});
+	}
 }
 
 function clearFormInputs() {
 	formInputName.val('');
 	formInputQuantity.val('');
-	formInputCategory.val('');
 }
 
 function loadData(data) {

@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="./css/uikit.css" />
+		<link rel="stylesheet" href="./css/style.css" />
 		<title>Grocery List</title>
 	</head>
 	<body>
@@ -46,6 +47,12 @@
 				</div>
 			</li>
 			<li>
+				<a class="uk-accordion-title" href="#">Personal Care</a>
+				<div class="uk-accordion-content">
+					<ul id="personal-list"></ul>
+				</div>
+			</li>
+			<li>
 				<a class="uk-accordion-title" href="#">Other</a>
 				<div class="uk-accordion-content">
 					<ul id="other-list"></ul>
@@ -64,7 +71,7 @@
 
 				<div class="uk-margin">
 					<p>Quantity:</p>
-					<input class="uk-input" id="form-input-quantity" type="number" placeholder="1" />
+					<input class="uk-input" id="form-input-quantity" type="text" placeholder="1 Pound" />
 				</div>
 
 				<div class="uk-margin">
@@ -76,6 +83,7 @@
 						<option value="dry">Cereal/Dry Snacks</option>
 						<option value="baked">Bread/Bagels</option>
 						<option value="ethnic">Pasta/Soups/Ethnic Foods</option>
+						<option value="personal">Personal Care</option>
 						<option value="other">Other</option>
 					</select>
 				</div>
@@ -98,3 +106,6 @@
 		<script src="./js/index.js"></script>
 	</body>
 </html>
+
+
+

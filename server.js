@@ -54,7 +54,11 @@ app.get('/', (req, res) => {
 			}
 			res.status(200).end();
 		});
-	});
+	})
+	// .put('api/:id', (req, res)=>{
+	// 	let id = req.params.id;
+	// 	connection.query('UPDATE GROCERIES ')
+	// })
 
 // -----------------------------
 // Start Server

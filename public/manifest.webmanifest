@@ -1,0 +1,12 @@
+{
+	"short_name": "Grocery List",
+	"name": "Grocery List",
+	"lang": "en",
+	"start_url": "https://stark-fortress-04059.herokuapp.com/",
+	"background_color": "#00aae7",
+	"theme_color": "#00aae7",
+	"dir": "ltr",
+	"display": "standalone",
+	"orientation": "natural",
+	"prefer_related_applications": "false"
+}
