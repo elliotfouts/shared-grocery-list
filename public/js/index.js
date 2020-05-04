@@ -32,7 +32,8 @@ function removeItem(event) {
 		url: `/api/${id}`,
 		type: 'DELETE',
 		success: function (result) {
-			location.reload();
+			clearGroceryList();
+			populateGroceryList();
 		}
 	});
 }
@@ -60,6 +61,15 @@ function createListElements(data) {
 				break;
 			case 'ethnic':
 				$('#ethnic-list').append(newItem);
+				break;
+			case 'baking':
+				$('#baking-list').append(newItem);
+				break;
+			case 'beverages':
+				$('#beverages-list').append(newItem);
+				break;
+			case 'cleaning':
+				$('#cleaning-list').append(newItem);
 				break;
 			case 'personal':
 				$('#personal-list').append(newItem);
